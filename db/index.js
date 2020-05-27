@@ -17,13 +17,9 @@ const db = low(adapter)
 
 db.defaults({ feedbacks: [] }).write()
 
-const isEmptyQuery = obj => Object.keys(obj).length === 0 && obj.constructor === Object
-
 const jsonDB = module.exports = {
   getFeedbacks: query => {
-    if (!query || isEmptyQuery(query)) {
-      return db.get(FEEDBACKS_COLLECTION).value()
-    } else {
+    if (query) {
       const { fromDate, toDate, authorName } = query
 
       return db.get(FEEDBACKS_COLLECTION)
@@ -43,6 +39,8 @@ const jsonDB = module.exports = {
         return true
       })
       .value()
+    } else {
+      return db.get(FEEDBACKS_COLLECTION).value()
     }
   },
 

@@ -4,6 +4,8 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const njk = require('nunjucks')
+const auth = require('./middleware/auth')
+const schemaValidation = require('./middleware/schemaValidation')
 
 var routes = Object.values(require('require-all')({
   dirname: __dirname + '/routes'
@@ -19,17 +21,29 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-routes.forEach(({ path, router }) => {
-  app.use(path, router)
-});
+routes.forEach(({ method, path, controller, isAuhtRequired = false, inputSchema = null }) => {
+  const router = express.Router()
+
+  if (isAuhtRequired) router.use(auth)
+
+  if (inputSchema) {
+    const schemaValidationForRoute = schemaValidation(inputSchema)
+
+    router.use(schemaValidationForRoute)
+  }
+
+  router[method.toLowerCase()](path, controller)
+
+  app.use(router)
+})
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 })
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message
   res.locals.error = req.app.get('env') === 'development' ? err : {}
