@@ -11,8 +11,12 @@
     "express": "~4.16.1",
     "express-nunjucks": "^2.2.5",
     "http-errors": "~1.6.3",
+    "lodash": "^4.17.15",
+    "lowdb": "^1.0.0",
+    "moment": "^2.26.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.4",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "require-all": "^3.0.0"
   }
 }

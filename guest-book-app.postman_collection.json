@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "fa89b6f3-129e-4aa4-be69-916b3ed68466",
+		"name": "guest-book-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all feedbacks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/feedback",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feedback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add feedback",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"authorName\": \"Test Testoff\",\n\t\"body\": \"Some really interesting text. Excellent 2 star hotel!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query feedbacks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/feedback?authorName=Test Testoff&toDate=2020-05-27T10:57:00Z&fromDate=2020-05-27T10:57:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"feedback"
+					],
+					"query": [
+						{
+							"key": "authorName",
+							"value": "Test Testoff"
+						},
+						{
+							"key": "toDate",
+							"value": "2020-05-27T10:57:00Z"
+						},
+						{
+							"key": "fromDate",
+							"value": "2020-05-27T10:57:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

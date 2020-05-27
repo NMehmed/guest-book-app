@@ -1,0 +1,8 @@
+{
+  "ext": "js html css",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "lowDB.json"
+  ]
+}
