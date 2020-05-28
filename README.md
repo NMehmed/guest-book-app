@@ -53,6 +53,6 @@ If you are using postman you can simply import postman collection, just keep in 
 
 | Prop key    | Type     | Description                                | Example                |
 |-------------|----------|--------------------------------------------|------------------------|
-| authoName  | String   | Feedback's author name                     | 'Tom Jerry'            |
+| authorName  | String   | Feedback's author name                     | 'Tom Jerry'            |
 | body        | String   | Feedback itself                            | 'Awesome hotel'        |
 | dateCreated | DateTime | Date on which feedbacks has been submitted | '2020-05-28T10:54:51Z' |
