@@ -26,12 +26,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/feedback",
+					"raw": "http://localhost:8080/feedback",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
 						"feedback"
 					]
@@ -54,12 +54,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/submit",
+					"raw": "http://localhost:8080/submit",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
 						"submit"
 					]
@@ -70,15 +70,30 @@
 		{
 			"name": "query feedbacks",
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Admin",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/feedback?authorName=Test Testoff&toDate=2020-05-27T10:57:00Z&fromDate=2020-05-27T10:57:00Z",
+					"raw": "http://localhost:8080/feedback?authorName=Test Testoff",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "8080",
 					"path": [
 						"feedback"
 					],
@@ -89,11 +104,13 @@
 						},
 						{
 							"key": "toDate",
-							"value": "2020-05-27T10:57:00Z"
+							"value": "2020-05-27T10:57:00Z",
+							"disabled": true
 						},
 						{
 							"key": "fromDate",
-							"value": "2020-05-27T10:57:00Z"
+							"value": "2020-05-27T10:57:00Z",
+							"disabled": true
 						}
 					]
 				}
