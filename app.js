@@ -8,12 +8,10 @@ const auth = require('./middleware/auth')
 const schemaValidation = require('./middleware/schemaValidation')
 
 var routes = Object.values(require('require-all')({
-  dirname: __dirname + '/routes'
+  dirname: path.join(__dirname, 'routes')
 }))
 
 const app = express()
-
-const isDev = app.get('env') === 'development'
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -39,7 +37,7 @@ routes.forEach(({ method, path, controller, isAuhtRequired = false, inputSchema 
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  next(createError(404))
 })
 
 // error handler

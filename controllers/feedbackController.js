@@ -3,8 +3,8 @@ const isEmptyQuery = obj => Object.keys(obj).length === 0 && obj.constructor ===
 
 module.exports = {
   getFeedbacks: (req, res) => {
-    query = req.query && !isEmptyQuery(req.query) ? req.query : null
-    
+    const query = req.query && !isEmptyQuery(req.query) ? req.query : null
+
     res.send(db.getFeedbacks(query))
   },
 

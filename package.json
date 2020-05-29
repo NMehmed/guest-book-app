@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --config ./nodemon.json ./bin/www"
+    "coverage": "nyc mocha --exit && nyc check-coverage",
+    "lint": "eslint . --quiet && echo '✔ All good!'",
+    "start": "nodemon --config ./nodemon.json ./bin/www",
+    "test": "npm run lint && npm run coverage"
   },
   "dependencies": {
     "ajv": "^6.12.2",
@@ -19,5 +22,20 @@
     "nodemon": "^2.0.4",
     "nunjucks": "^3.2.1",
     "require-all": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "dirty-chai": "2.0.1",
+    "eslint": "6.4.0",
+    "eslint-config-standard": "14.1.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-mocha": "6.1.1",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-standard": "4.0.1",
+    "mocha": "6.2.0",
+    "nyc": "14.1.1",
+    "sinon-chai": "3.3.0"
   }
 }

@@ -1,7 +1,6 @@
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const fs = require('fs')
-const _ = require('lodash')
 const moment = require('moment')
 
 const DB_FILE_NAME = 'lowDB.json'
@@ -23,22 +22,22 @@ const jsonDB = module.exports = {
       const { fromDate, toDate, authorName } = query
 
       return db.get(FEEDBACKS_COLLECTION)
-      .filter(x => {
-        if (authorName) return x.authorName === authorName
+        .filter(x => {
+          if (authorName) return x.authorName === authorName
 
-        return true
-      })
-      .filter(x=> {
-        if (fromDate) return moment(x.dateCreated).isAfter(fromDate)
+          return true
+        })
+        .filter(x => {
+          if (fromDate) return moment(x.dateCreated).isAfter(fromDate)
 
-        return true
-      })
-      .filter(x=> {
-        if (toDate) return moment(x.dateCreated).isBefore(toDate)
+          return true
+        })
+        .filter(x => {
+          if (toDate) return moment(x.dateCreated).isBefore(toDate)
 
-        return true
-      })
-      .value()
+          return true
+        })
+        .value()
     } else {
       return db.get(FEEDBACKS_COLLECTION).value()
     }

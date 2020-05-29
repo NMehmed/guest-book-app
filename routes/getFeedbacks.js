@@ -1,8 +1,8 @@
 const feedbackController = require('../controllers/feedbackController')
 
 module.exports = {
-  method: 'GET', 
-  path: '/feedback', 
+  method: 'GET',
+  path: '/feedback',
   controller: feedbackController.getFeedbacks,
-  isAuhtRequired: true 
+  isAuhtRequired: true
 }
