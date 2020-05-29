@@ -25,6 +25,25 @@ docker-compose up
 
 Docker app runs on port `49160`
 
+## Running linting and tests
+This will run lint, test and coverage
+
+```shell
+npm run test
+```
+
+For linting only
+
+```shell
+npm run lint
+```
+
+For coverage only
+
+```shell
+npm run coverage
+```
+
 ### API
 
 If you are using postman you can simply import postman collection, just keep in mind postman is set up for http://localhost:8080 -> [postman-collection](guest-book-app.postman_collection.json)
