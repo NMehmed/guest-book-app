@@ -12,6 +12,8 @@
   "exclude": [
     "test/**/*.js",
     "public",
-    "app.js"
+    "app.js",
+    "coverage/",
+    "db/"
   ]
 }
