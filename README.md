@@ -44,13 +44,13 @@ For coverage only
 npm run coverage
 ```
 
-### API
+## API
 
 If you are using postman you can simply import postman collection, just keep in mind postman is set up for http://localhost:8080 -> [postman-collection](guest-book-app.postman_collection.json)
 
 * [GET] - {service_url}/feedback - Returns all of the feedbacks. Basic authentication required (Username - Admin, passowrd - Admin). Also supports filtering using query strings take a look below for more info
 
-#### Query string filtering options
+### Query string filtering options
 
 | Query string key | Type     | Description                                                                  | Example                |
 |------------------|----------|------------------------------------------------------------------------------|------------------------|
@@ -60,7 +60,7 @@ If you are using postman you can simply import postman collection, just keep in 
 
 * [POST] - {service_url}/submit - Submits feedback, expects `authorName` and `body` params passed in body JSON format. Take a look on input/output schema below.
 
-#### Input schema
+### Input schema
 
 | Prop key   | Type   | Description            | Example         |
 |------------|--------|------------------------|-----------------|
@@ -68,7 +68,7 @@ If you are using postman you can simply import postman collection, just keep in 
 | body       | String | Feedback itself        | 'Awesome hotel' |
 
 
-#### Output schema
+### Output schema
 
 | Prop key    | Type     | Description                                | Example                |
 |-------------|----------|--------------------------------------------|------------------------|
