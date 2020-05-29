@@ -1,5 +1,3 @@
-[![Runme](https://runme.io/static/button.svg)](https://runme.io/run?app_id=ad26d231-6333-4f5c-99ab-3ef6d313e140)
-
 # guest-book-app
 Api that receives feedback from hotel guests
 
