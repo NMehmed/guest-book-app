@@ -21,16 +21,19 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 routes.forEach(({ method, path, controller, isAuhtRequired = false, inputSchema = null }) => {
   const router = express.Router()
+  const middlewaresForRoute = []
 
-  if (isAuhtRequired) router.use(auth)
+  if (isAuhtRequired) middlewaresForRoute.push(auth)
 
   if (inputSchema) {
     const schemaValidationForRoute = schemaValidation(inputSchema)
 
-    router.use(schemaValidationForRoute)
+    middlewaresForRoute.push(schemaValidationForRoute)
   }
 
-  router[method.toLowerCase()](path, controller)
+  middlewaresForRoute.push(controller)
+
+  router[method.toLowerCase()](path, ...middlewaresForRoute)
 
   app.use(router)
 })

@@ -1,29 +1,27 @@
 const auth = require('../../../middleware/auth')
 
 describe('auth', () => {
-  const res = {
-    send: sinon.spy()
-  }
+  const res = {}
 
   const next = sinon.spy()
 
   context('when authorization header is missing', () => {
-    it('should send 401', () => {
-      auth({ headers: {} }, res)
+    it('should call next with 401 error', () => {
+      auth({ headers: {} }, res, next)
 
-      expect(res.send).to.have.been.calledWith(401)
+      expect(next).to.have.been.called.with('error')
     })
   })
 
   context('when authorization header but admin password is wrong', () => {
-    it('should send 401', () => {
+    it('should call next with 401 error', () => {
       auth({
         headers: {
           authorization: `Basic ${Buffer.from('Admin:WrongPassword').toString('base64')}`
         }
-      }, res)
+      }, res, next)
 
-      expect(res.send).to.have.been.calledWith(401)
+      expect(next).to.have.been.called.with('error')
     })
   })
 
@@ -35,7 +33,7 @@ describe('auth', () => {
         }
       }, res, next)
 
-      expect(next).to.have.been.called()
+      expect(next).to.have.been.calledWith()
     })
   })
 })
